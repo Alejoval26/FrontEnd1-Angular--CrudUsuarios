@@ -31,7 +31,7 @@
         <div class="w-full flex flex-col">
           <label for="fechaNacimiento" class="mb-1 text-sm font-semibold">🎂 Fecha de Nacimiento*</label>
           <p-calendar id="fechaNacimiento" formControlName="fechaNacimiento" [showIcon]="true" dateFormat="yy-mm-dd"
-            class="w-full" />
+             styleClass="w-full" />
           @if (complementForm.get('fechaNacimiento')?.touched && complementForm.get('fechaNacimiento')?.invalid) {
           <div class="text-red-500 mt-1 text-sm">
             {{ getErrorMessage('fechaNacimiento') }}
@@ -42,14 +42,14 @@
       </div>
     </form>
 
-    <div class="flex justify-between mt-10">
+    <div class="flex justify-between mt-10 gap-5">
       <button (click)="regresarPasoAnterior()"
-        class="p-3 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600">
+        class="p-3 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600 w-full">
         ← Volver
       </button>
 
       <button (click)="enviarComplemento()" [disabled]="!complementForm.valid"
-        class="p-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed">
+        class=" w-full p-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed">
         Finalizar Registro
       </button>
     </div>
