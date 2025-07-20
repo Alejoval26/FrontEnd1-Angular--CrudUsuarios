@@ -1,0 +1,59 @@
+<div class="flex items-center justify-center text-white w-full">
+  <div class="bg-black ring-red-500 w-full m-5 p-10" style="box-shadow: 0 0 20px red;">
+    <h2 class="text-3xl font-bold mb-6 text-center">Datos Complementarios</h2>
+
+    <form [formGroup]="complementForm">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Dirección -->
+        <div class="w-full flex flex-col">
+          <label for="direccion" class="mb-1 text-sm font-semibold">🏠 Dirección*</label>
+          <input id="direccion" type="text" pInputText formControlName="direccion" placeholder="Dirección" />
+          @if (complementForm.get('direccion')?.touched && complementForm.get('direccion')?.invalid) {
+          <div class="text-red-500 mt-1 text-sm">
+            {{ getErrorMessage('direccion') }}
+          </div>
+          }
+        </div>
+
+        <!-- Ciudad de Residencia -->
+        <div class="w-full flex flex-col">
+          <label for="ciudadResidencia" class="mb-1 text-sm font-semibold">🌆 Ciudad de Residencia*</label>
+          <input id="ciudadResidencia" type="text" pInputText formControlName="ciudadResidencia" placeholder="Ciudad" />
+          @if (complementForm.get('ciudadResidencia')?.touched && complementForm.get('ciudadResidencia')?.invalid) {
+          <div class="text-red-500 mt-1 text-sm">
+            {{ getErrorMessage('ciudadResidencia') }}
+          </div>
+          }
+        </div>
+
+        <!-- Fecha de Nacimiento -->
+        <div class="w-full flex flex-col">
+          <label for="fechaNacimiento" class="mb-1 text-sm font-semibold">🎂 Fecha de Nacimiento*</label>
+          <p-calendar id="fechaNacimiento" formControlName="fechaNacimiento" [showIcon]="true" dateFormat="yy-mm-dd"
+            class="w-full" />
+          @if (complementForm.get('fechaNacimiento')?.touched && complementForm.get('fechaNacimiento')?.invalid) {
+          <div class="text-red-500 mt-1 text-sm">
+            {{ getErrorMessage('fechaNacimiento') }}
+          </div>
+          }
+        </div>
+
+      </div>
+    </form>
+
+    <div class="flex justify-between mt-10">
+      <button (click)="regresarPasoAnterior()"
+        class="p-3 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600">
+        ← Volver
+      </button>
+
+      <button (click)="enviarComplemento()" [disabled]="!complementForm.valid"
+        class="p-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed">
+        Finalizar Registro
+      </button>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+/* Paso activo */
+.p-step.p-step-active .p-step-number {
+  background-color: #dc2626;
+  color: white;
+  border: 1px solid #000000;
+}
+
+.p-step.p-step-active .p-step-title {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* Paso inactivo */
+.p-step:not(.p-step-active) .p-step-number {
+  background-color: #cb6060;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+/* Estilo general de número */
+.p-step-number {
+  font-size: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-radius: 50%;
+  text-align: center;
+}
+
+/* Estilo del título */
+.p-step-title {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+
+/* Alineación vertical de número y texto */
+.p-step-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem; /* Espacio entre número y título */
+}
+
+/* Ajuste visual del número */
+.p-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

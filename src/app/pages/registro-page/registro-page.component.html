@@ -1,0 +1,35 @@
+
+<div class="p-20">
+  <p-stepper [value]="pasoActual" class="basis-[50rem]">
+
+
+  <p-step-list>
+        <p-step [value]="1">Header I</p-step>
+        <p-step [value]="2">Header II</p-step>
+        <p-step [value]="3">Header II</p-step>
+    </p-step-list>
+
+
+  <p-step-panels>
+
+    <!-- Paso 1 -->
+    <p-step-panel [value]="1" header="Datos Personales">
+      <ng-template #content>
+        <div class="space-y-4">
+          <app-user-form (avanzarPaso)="cambiarPaso(2)"></app-user-form>
+        </div>
+      </ng-template>
+    </p-step-panel>
+
+    <!-- Paso 2 -->
+    <p-step-panel [value]="2" header="Datos Complementarios">
+      <ng-template #content>
+        <app-user-complement-form (avanzarPaso)="cambiarPaso(3)" (regresarPaso)="cambiarPaso(1)"></app-user-complement-form>
+      </ng-template>
+    </p-step-panel>
+
+  </p-step-panels>
+</p-stepper>
+
+</div>
+
